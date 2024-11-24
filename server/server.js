@@ -23,6 +23,7 @@ const port = process.env.PORT || 8080;
 
 const corsOptions = {
   origin: ["http://localhost:5173"],
+  credentials: true,
 };
 
 connect(
@@ -44,6 +45,11 @@ app.use('/api/v1/public/auth', authRoutes);
 app.use('/api/v1/internal/affiliates', affiliateRoutes);
 app.use('/api/v1/internal/agents', agentRoutes);
 app.use('/api-docs', serve, setup(swaggerDocument));
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 
 app.get('/api/uploads/:filename', (req, res) => {
   const { filename } = req.params;

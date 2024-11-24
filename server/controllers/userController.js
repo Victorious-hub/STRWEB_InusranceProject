@@ -2,16 +2,10 @@ import { User, Client } from '../models/userModel.js';
 
 export const createClient = async (req, res) => {
     try {
-        const { first_name, last_name, email, birthdate, password, re_password } = req.body;
-        const newUser = new User({ 
-            firstName: first_name, 
-            lastName: last_name, 
-            email: email,
-            birthdate: birthdate,
-            password: password, 
-            passwordConfirm: re_password
-        });
-        const age = Math.floor((new Date() - new Date(birthdate).getTime()) / 3.15576e+10);
+        console.log(req.body);
+        const newUser = new User(req.body);
+        
+        const age = Math.floor((new Date() - new Date(req.body.birthdate).getTime()) / 3.15576e+10);
         newUser.age = age;
         await newUser.save();
 
