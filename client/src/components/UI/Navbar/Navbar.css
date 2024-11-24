@@ -1,0 +1,30 @@
+nav {
+    background-color: #333;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav li {
+    margin-right: 25px;
+    padding: 0;
+    display: inline-block;
+}
+
+nav a, nav li {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+nav li :hover {
+    color: #ffcc00;
+}

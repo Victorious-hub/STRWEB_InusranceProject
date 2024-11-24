@@ -1,0 +1,33 @@
+.input,
+.select,
+.textArea {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    display: block;
+}
+
+.textArea {
+    resize: none;
+    height: 5em;
+}
+
+.input:hover,
+.input:focus,
+.select:focus,
+.select:focus,
+.textArea:hover,
+.textArea:focus {
+    border-color: #3498db;
+}
+
+.option {
+    font-size: 16px;
+}
+
+.option:disabled {
+    color: #ccc;
+}
