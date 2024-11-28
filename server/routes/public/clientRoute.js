@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createClient, getClients, updateUserCreds } from '../../controllers/userController.js';
+import { getClientById, createClient, getClients, updateUserCreds } from '../../controllers/clientController.js';
 import multer from "multer";
 import { v4 as uuidv4 } from 'uuid';
 import path from 'path';
@@ -33,6 +33,6 @@ const router = Router();
 router.post('/registration', createClient);
 router.get('/', getClients);
 router.put('/:userId', uploads.single('profile_image'), updateUserCreds);
-
+router.get('/:id', getClientById);
 
 export default router;

@@ -18,3 +18,20 @@ export const getInsuranceRisks = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+export const getInsuranceRisksByObjectId = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const insuranceRisks = await InsuranceRisk.find({ insuranceObject: id })
+            .populate('insuranceObject');
+
+        if (!insuranceRisks || insuranceRisks.length === 0) {
+            return res.status(404).json({ message: "No risks found for this insurance object." });
+        }
+
+        res.status(200).json(insuranceRisks);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

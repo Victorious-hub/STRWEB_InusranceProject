@@ -30,7 +30,7 @@ const insuranceRiskSchema = new Schema({
 const contractSchema = new Schema({
     status: {
         type: String,
-        enum: ["CREATED", "CONFIRMED", "COMPLETED"],
+        enum: ["CREATED", "SIGNED", "CONFIRMED", "COMPLETED"],
     },
     client: {
         type: Schema.Types.ObjectId,
@@ -42,7 +42,17 @@ const contractSchema = new Schema({
         ref: "Affiliate",
         required: [true, "Please fill your affiliate"],
     },
-
+    insuranceObject: {
+        type: Schema.Types.ObjectId,
+        ref: "InsuranceObject",
+        required: [true, "Please fill your insurance object"],
+    },
+    insuranceRisks: 
+    [{
+        type: Schema.Types.ObjectId,
+        ref: "InsuranceRisk",
+        required: [true, "Please fill your insurance risks"],
+    }]
 });
 
 const policySchema = new Schema({

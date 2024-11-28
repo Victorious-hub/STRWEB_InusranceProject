@@ -1,8 +1,8 @@
 import React from 'react';
-import WeatherComponent from '../components/WeatherComponent';
-import JokeComponent from '../components/JokeComponent';
-import '../App.css'
-import Block from '../components/UI/Block/Block';
+import WeatherComponent from '../../components/WeatherComponent';
+import JokeComponent from '../../components/JokeComponent';
+import '../../App.css'
+import Block from '../../components/UI/Block/Block';
 
 const Home = () => {
     return (

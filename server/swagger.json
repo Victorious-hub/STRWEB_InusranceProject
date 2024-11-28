@@ -25,9 +25,9 @@
         }
     ],
     "paths": {
-        "/v1/public/users/registration": {
+        "/v1/public/clients/registration": {
             "post": {
-                "tags": ["Users"],
+                "tags": ["Clients"],
                 "summary": "Register a new client",
                 "description": "This endpoint registers a new client.",
                 "consumes": [
@@ -57,9 +57,9 @@
                 }
             }
         },
-        "/v1/public/users": {
+        "/v1/public/clients": {
             "get": {
-                "tags": ["Users"],
+                "tags": ["Clients"],
                 "summary": "Get all clients",
                 "description": "Returns a list of all clients with full data",
                 "responses": {
@@ -103,9 +103,40 @@
                 }
             }
         },
+        "/v1/public/clients/{id}": {
+            "get": {
+                "tags": ["Clients"],
+                "summary": "Get user by ID",
+                "description": "Retrieve details of a user by their ID.",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the user to retrieve",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User details retrieved successfully",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "404": {
+                        "description": "User not found"
+                    },
+                    "500": {
+                        "description": "Error retrieving user"
+                    }
+                }
+            }
+        },
         "/v1/public/auth/login": {
             "post": {
-                "tags": ["Users"],
+                "tags": ["Auth"],
                 "summary": "Authenticate a user",
                 "description": "This endpoint authenticates a user.",
                 "consumes": [
@@ -143,9 +174,9 @@
                 }
             }
         },
-        "/v1/public/users/{userId}": {
+        "/v1/public/clients/{userId}": {
             "put": {
-                "tags": ["Users"],
+                "tags": ["Clients"],
                 "summary": "Update user credentials",
                 "description": "This endpoint updates user credentials.",
                 "consumes": [
@@ -235,34 +266,141 @@
                     "description": "Invalid input"
                 }
                 }
+            },
+            "get": {
+                "tags": ["Agents"],
+                "summary": "Get all agents",
+                "description": "Endpoint to get all agents",
+                "produces": ["application/json"],
+                "responses": {
+                    "200": {
+                        "description": "A list of agents",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Agent"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error retrieving agents"
+                    }
+                }
+            }
+        },
+        "/v1/internal/agents/{id}": {
+            "get": {
+                "tags": ["Agents"],
+                "summary": "Get agent by ID",
+                "description": "Retrieve details of an agent by their ID.",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of the agent to retrieve",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Agent details retrieved successfully",
+                        "schema": {
+                            "$ref": "#/definitions/Agent"
+                        }
+                    },
+                    "404": {
+                        "description": "Agent not found"
+                    },
+                    "500": {
+                        "description": "Error retrieving agent"
+                    }
+                }
+            }
+        },
+        "/v1/internal/agents/contracts/{id}": {
+            "get": {
+                "tags": ["Contracts"],
+                "summary": "Get contracts by agent or affiliate ID",
+                "description": "Endpoint to get contracts by agent or affiliate ID",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "ID of the agent or affiliate"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A list of contracts for the specified agent or affiliate",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Contract"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "No contracts found for this agent or affiliate"
+                    },
+                    "500": {
+                        "description": "Error retrieving contracts"
+                    }
+                }
+            }
+        },
+        "/v1/internal/affiliates/create": {
+            "post": {
+                "tags": ["Affiliates"],
+                "summary": "Create a new affiliate",
+                "description": "Endpoint to create a new affiliate",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "Affiliate object that needs to be added",
+                    "required": true,
+                    "schema": {
+                    "$ref": "#/definitions/Affiliate"
+                    }
+                }
+                ],
+                "responses": {
+                "200": {
+                    "description": "Affiliate created successfully"
+                },
+                "400": {
+                    "description": "Invalid input"
+                }
+            }
             }
         },
         "/v1/internal/affiliates": {
-        "post": {
-            "tags": ["Affiliates"],
-            "summary": "Create a new affiliate",
-            "description": "Endpoint to create a new affiliate",
-            "consumes": ["application/json"],
-            "produces": ["application/json"],
-            "parameters": [
-            {
-                "in": "body",
-                "name": "body",
-                "description": "Affiliate object that needs to be added",
-                "required": true,
-                "schema": {
-                "$ref": "#/definitions/Affiliate"
+            "get": {
+                "tags": ["Affiliates"],
+                "summary": "Get all affiliates",
+                "description": "Endpoint to get all affiliates",
+                "produces": ["application/json"],
+                "responses": {
+                "200": {
+                    "description": "A list of affiliates",
+                    "schema": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Affiliate"
+                    }
+                    }
+                },
+                "500": {
+                    "description": "Error retrieving affiliates"
                 }
-            }
-            ],
-            "responses": {
-            "200": {
-                "description": "Affiliate created successfully"
-            },
-            "400": {
-                "description": "Invalid input"
-            }
-            }
+                }
             }
         },
 
@@ -361,9 +499,314 @@
                 }
                 }
             }
+        },
+        "/v1/internal/insurance-risks/{id}": {
+            "get": {
+                "tags": ["InsuranceRisks"],
+                "summary": "Get insurance risks by insurance object ID",
+                "description": "Endpoint to get insurance risks by insurance object ID",
+                "produces": ["application/json"],
+                "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "type": "string",
+                    "description": "ID of the insurance object"
+                }
+                ],
+                "responses": {
+                "200": {
+                    "description": "A list of insurance risks for the specified insurance object",
+                    "schema": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/InsuranceRisk"
+                    }
+                    }
+                },
+                "404": {
+                    "description": "No risks found for this insurance object"
+                },
+                "500": {
+                    "description": "Error retrieving insurance risks"
+                }
+                }
+            }
+        },
+        "/v1/public/contracts": {
+            "post": {
+                "tags": ["Contracts"],
+                "summary": "Create a new contract",
+                "description": "Endpoint to create a new contract",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [
+                {
+                    "in": "body",
+                    "name": "body",
+                    "description": "Contract object that needs to be added",
+                    "required": true,
+                    "schema": {
+                    "$ref": "#/definitions/Contract"
+                    }
+                }
+                ],
+                "responses": {
+                "201": {
+                    "description": "Contract created successfully"
+                },
+                "400": {
+                    "description": "Invalid input"
+                }
+                }
+            },
+            "get": {
+                "tags": ["Contracts"],
+                "summary": "Get all contracts",
+                "description": "Endpoint to get all contracts",
+                "produces": ["application/json"],
+                "responses": {
+                "200": {
+                    "description": "A list of contracts",
+                    "schema": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Contract"
+                    }
+                    }
+                },
+                "500": {
+                    "description": "Error retrieving contracts"
+                }
+                }
+            }
+        },
+        "/v1/public/contracts/{id}": {
+            "get": {
+            "tags": ["Contracts"],
+            "summary": "Get contract by ID",
+            "description": "Endpoint to get a contract by its ID",
+            "produces": ["application/json"],
+            "parameters": [
+                {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "type": "string",
+                "description": "ID of the contract"
+                }
+            ],
+            "responses": {
+                "200": {
+                "description": "Contract retrieved successfully",
+                "schema": {
+                    "$ref": "#/definitions/Contract"
+                }
+                },
+                "404": {
+                "description": "Contract not found"
+                },
+                "500": {
+                "description": "Error retrieving contract"
+                }
+            }
+            }
+        },
+        "/v1/public/contracts/user/{id}": {
+            "get": {
+            "tags": ["Contracts"],
+            "summary": "Get contracts by user ID",
+            "description": "Endpoint to get contracts by user ID",
+            "produces": ["application/json"],
+            "parameters": [
+            {
+                "name": "id",
+                "in": "path",
+                "required": true,
+            "type": "string",
+            "description": "ID of the user"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of contracts for the specified user",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Contract"
+              }
+            }
+          },
+          "404": {
+            "description": "No contracts found for this user"
+          },
+          "500": {
+            "description": "Error retrieving contracts"
+          }
         }
+      },
+      "put": {
+        "tags": ["Contracts"],
+        "summary": "Sign a contract",
+        "description": "Endpoint to sign a contract",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the contract"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contract signed successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Contract not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Contracts"],
+        "summary": "Delete a contract",
+        "description": "Endpoint to delete a contract",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "ID of the contract"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contract deleted successfully"
+          },
+          "404": {
+            "description": "Contract not found"
+          },
+          "500": {
+            "description": "Error deleting contract"
+          }
+        }
+      }
+    },
+    "/v1/public/policies": {
+        "post": {
+        "tags": ["Policies"],
+        "summary": "Create a new policy",
+        "description": "Endpoint to create a new policy",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+            {
+            "in": "body",
+            "name": "body",
+            "description": "Policy object that needs to be added",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/Policy"
+            }
+            }
+        ],
+        "responses": {
+            "201": {
+            "description": "Policy created successfully"
+            },
+            "400": {
+            "description": "Invalid input"
+            }
+        }
+        },
+        "get": {
+        "tags": ["Policies"],
+        "summary": "Get all policies",
+        "description": "Endpoint to get all policies",
+        "produces": ["application/json"],
+        "responses": {
+            "200": {
+            "description": "A list of policies",
+            "schema": {
+                "type": "array",
+                "items": {
+                "$ref": "#/definitions/Policy"
+                }
+            }
+            },
+            "500": {
+            "description": "Error retrieving policies"
+            }
+        }
+        }
+    }
     },
     "definitions": {
+        "Policy": {
+            "type": "object",
+            "required": ["agent", "contract", "insuranceSum", "price", "startDate", "endDate"],
+            "properties": {
+                "agent": {
+                    "type": "string",
+                    "format": "ObjectId"
+                },
+                "contract": {
+                    "type": "string",
+                    "format": "ObjectId"
+                },
+                "insuranceSum": {
+                    "type": "number"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "startDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "endDate": {
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "Contract": {
+            "type": "object",
+            "required": ["client", "affiliate", "insuranceObject", "insuranceRisks"],
+            "properties": {
+                "status": {
+                "type": "string",
+                "enum": ["CREATED", "CONFIRMED", "COMPLETED"]
+                },
+                "client": {
+                "type": "string",
+                "format": "ObjectId"
+                },
+                "affiliate": {
+                "type": "string",
+                "format": "ObjectId"
+                },
+                "insuranceObject": {
+                "type": "string",
+                "format": "ObjectId"
+                },
+                "insuranceRisks": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "format": "ObjectId"
+                }
+                }
+            }
+        },
         "Client": {
             "type": "object",
             "required": [

@@ -1,0 +1,58 @@
+.catalog-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.catalog-item h3 {
+    margin: 0 0 10px 0;
+}
+
+.catalog-item p {
+    margin: 5px 0;
+}
+
+.catalog-item .contract-form {
+    margin-top: 20px;
+}
+
+.catalog-item .contract-form label {
+    display: block;
+    margin-top: 10px;
+}
+
+.catalog-item .contract-form input,
+.catalog-item .contract-form select {
+    margin-top: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.catalog-item .contract-form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.catalog-item .contract-form button:hover {
+    background-color: #0056b3;
+}
+
+.risk-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.risk-item {
+    margin-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+}

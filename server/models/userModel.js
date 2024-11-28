@@ -24,18 +24,18 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: [true, "Please fill your password"],
     minLength: 6,
+    default: null,
   },
   passwordConfirm: {
     type: String,
-    required: [true, "Please fill your password confirm"],
     validate: {
       validator: function(el) {
         return el === this.password;
       },
       message: "Your password and confirmation password are not the same",
     },
+    default: null,
   },
   role: {
     type: String,
@@ -44,12 +44,11 @@ const userSchema = new Schema({
   },
   birthdate: {
     type: Date,
-    required: [true, "Please fill your birthdate"],
+    default: null,
   },
   age: {
     type: Number,
-    required: [true, "Please fill your age"],
-    min: [18, "You must be at least 18 years old"],
+    default: null,
   },
   profileImage: {
     type: String,

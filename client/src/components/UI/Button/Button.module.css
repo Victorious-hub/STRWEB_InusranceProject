@@ -1,6 +1,6 @@
 .myBtn {
-    background-color: var(--deep-blue);
-    color: #ffffff;
+    background-color: orange;
+    color: black;
     padding: 10px 20px;
     font-size: 16px;
     border: none;
@@ -9,5 +9,6 @@
 }
 
 .myBtn:hover {
-    background-color: var(--dark-blue);
+    background-color: #cc9c4d;
+    transition: 0.3s ease;
 }

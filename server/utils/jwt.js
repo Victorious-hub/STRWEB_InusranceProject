@@ -5,12 +5,12 @@ const { sign, verify } = pkg;
 const serverSecret = process.env.SECRET;
 const refreshTokens = [];
 
-export function generateAccessToken(userId) {
-    return sign({ userId }, serverSecret, { expiresIn: '20m' });
+export function generateAccessToken(id, role) {
+    return sign({ id, role }, serverSecret, { expiresIn: '20m' });
 }
 
-export function generateRefreshToken(userId) {
-    const refreshToken = sign(userId, serverSecret);
+export function generateRefreshToken(id) {
+    const refreshToken = sign(id, serverSecret);
     refreshTokens.push(refreshToken);
     return refreshToken;
 }

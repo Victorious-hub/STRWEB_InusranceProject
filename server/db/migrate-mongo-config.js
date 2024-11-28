@@ -1,7 +1,7 @@
 const mongodb = {
   mongodb: {
     url: "mongodb://localhost:27017",
-    databaseName: "strweb",
+    databaseName: "strweb_database",
   },
   migrationsDir: "migrations",
   changelogCollectionName: "changelog",

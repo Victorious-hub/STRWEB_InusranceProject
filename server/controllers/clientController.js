@@ -49,12 +49,12 @@ export const getClient = async (req, res) => {
 export const updateUserCreds = async (req, res) => {
     try {
         const { userId } = req.params;
-        const { first_name, last_name, profile_image, address, phone_number } = req.body;
+        const { firstName, lastName, profileImage, address, phoneNumber } = req.body;
 
         const updatedFields = {
-            firstName: first_name,
-            lastName: last_name,
-            profileImage: req.file ? `/uploads/${req.file.filename}` : profile_image,
+            firstName: firstName,
+            lastName: lastName,
+            profileImage: req.file ? `/api/v1/uploads/${req.file.filename}` : profileImage,
         };
 
         const updatedUser = await User.findByIdAndUpdate(
@@ -67,7 +67,7 @@ export const updateUserCreds = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        const clientUpdateFields = { address, phoneNumber: phone_number };
+        const clientUpdateFields = { address, phoneNumber: phoneNumber };
         const updatedClient = await Client.findOneAndUpdate(
             { user: userId },
             clientUpdateFields,
@@ -89,3 +89,16 @@ export const updateUserCreds = async (req, res) => {
     }
 };
 
+export const getClientById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const client = await Client.findOne({ user: id }).populate('user');
+        if (!client) {
+            return res.status(404).json({ message: 'Client not found' });
+        }
+        
+        res.status(200).json(client);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving user', error: error.message });
+    }
+};

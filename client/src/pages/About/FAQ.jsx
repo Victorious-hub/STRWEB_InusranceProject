@@ -1,6 +1,6 @@
 import React from 'react';
-import Block from '../components/UI/Block/Block'
-import './Styles.css'
+import Block from '../../components/UI/Block/Block'
+import './../Styles.css'
 
 const FAQ = () => {
     return (

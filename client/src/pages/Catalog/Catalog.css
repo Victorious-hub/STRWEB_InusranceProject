@@ -1,0 +1,27 @@
+.catalog-page {
+    padding: 20px;
+}
+
+.filter {
+    margin-bottom: 20px;
+}
+
+.catalog-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.catalog-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.catalog-item h3 {
+    margin: 0 0 10px 0;
+}
+
+.catalog-item p {
+    margin: 5px 0;
+}

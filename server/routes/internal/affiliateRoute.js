@@ -1,7 +1,9 @@
 import { Router } from 'express';
-import { createAffiliate } from '../../controllers/affiliateController.js';
+import { createAffiliate, getAffiliates } from '../../controllers/affiliateController.js';
 
 const router = Router();
-router.post('/', createAffiliate);
+router.post('/create', createAffiliate);
+router.get('/', getAffiliates);
+
 
 export default router;
