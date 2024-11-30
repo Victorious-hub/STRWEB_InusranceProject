@@ -7,7 +7,6 @@ class WeatherComponent extends Component {
         this.state = {
             weatherData: null
         };
-
         this.fetchData();
     }
 

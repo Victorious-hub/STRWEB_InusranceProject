@@ -26,20 +26,14 @@ const Register = () => {
 
     const validateForm = () => {
         const { firstName, lastName, email, password, passwordConfirm, birthdate } = formData;
-
-        // Check if all fields are filled
         if (!firstName || !lastName || !email || !password || !passwordConfirm || !birthdate) {
             alert('All fields must be filled.');
             return false;
         }
-
-        // Check if passwords match
         if (password !== passwordConfirm) {
             alert('Passwords do not match.');
             return false;
         }
-
-        // Check if user is at least 18 years old
         const today = new Date();
         const birthDate = new Date(birthdate);
         const age = today.getFullYear() - birthDate.getFullYear();

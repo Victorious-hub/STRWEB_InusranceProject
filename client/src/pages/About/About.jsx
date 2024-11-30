@@ -4,36 +4,35 @@ import '../../App.css'
 
 const About = () => {
     return (
-        <div class="page">
+        <div className="page">
             <Block>
-                <h2>Информация о компании</h2>
+                <h2>About the Company</h2>
 
                 <p>
-                    <strong><abbr title="СИНХРОНИЗАЦИЯ">"СИНХРОНИЗАЦИЯ"</abbr></strong> - это <em>современная страховая фирма</em>,
-                    расположенная в центре Минска, Беларусь. Мы специализируемся на предоставлении высококачественных <strong>страховых
-                        услуг</strong> и заботимся о вашем <em>спокойствии</em> и <em>безопасности</em>.
-                    Наша фирма предлагает <u>широкий спектр страховых продуктов</u>, и наша команда специалистов
-                    обладает <strong>богатым опытом</strong> и <strong>профессиональными навыками</strong>.
+                    <strong><abbr title="SYNCHRONIZATION">"SYNCHRONIZATION"</abbr></strong> is a <em>modern insurance company</em>,
+                    located in the center of Minsk, Belarus. We specialize in providing high-quality <strong>insurance services</strong>
+                    and care about your <em>peace of mind</em> and <em>security</em>.
+                    Our company offers a <u>wide range of insurance products</u>, and our team of specialists has <strong>extensive experience</strong>
+                    and <strong>professional skills</strong>.
                 </p>
 
                 <p>
-                    Наши услуги <em>включают</em> в себя:
+                    Our services <em>include</em>:
                     <ul type="circle">
-                        <li>Медицинское страхование</li>
-                        <li>Автострахование</li>
-                        <li>Страхование путешествий</li>
-                        <li>Бизнес-страхование</li>
-                        <li>Страхование имущества</li>
-                        <li>Страхование жизни</li>
-                        <li>Консультации по страхованию</li>
+                        <li>Health insurance</li>
+                        <li>Car insurance</li>
+                        <li>Travel insurance</li>
+                        <li>Business insurance</li>
+                        <li>Property insurance</li>
+                        <li>Life insurance</li>
+                        <li>Insurance consulting</li>
                     </ul>
                 </p>
 
                 <blockquote>
-                    Наша <em>миссия</em> – обеспечивать нашим клиентам <strong>надежную страховую защиту</strong> и предоставлять
-                    им высокий уровень <em>обслуживания</em>.
+                    Our <em>mission</em> is to provide our clients with <strong>reliable insurance protection</strong> and offer them a high level of <em>service</em>.
                     <br></br>
-                    <span> – Основатель компании "СИНХРОНИЗАЦИЯ"</span>
+                    <span>– Founder of the "SYNCHRONIZATION" company</span>
                 </blockquote>
             </Block>
         </div>

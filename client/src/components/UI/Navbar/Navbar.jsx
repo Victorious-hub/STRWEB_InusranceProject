@@ -40,19 +40,19 @@ function Navbar() {
             <ul>
                 <div>
                     <li>
-                        <Link to="/">Главная</Link>
+                        <Link to="/">Main</Link>
                     </li>
                     <li>
-                        <Link to="/about">О нас</Link>
+                        <Link to="/about">About Us</Link>
                     </li>
                     <li>
                         <Link to="/faq">FAQ</Link>
                     </li>
+                    <li>
+                        <Link to="/catalog">Catalog</Link>
+                    </li>
                     {token && userRole == 'client' && (
                         <>
-                            <li>
-                                <Link to="/catalog">Catalog</Link>
-                            </li>
                             <li>
                                 <Link to="/orders">Orders</Link>
                             </li>
@@ -83,17 +83,17 @@ function Navbar() {
                     {!token && (
                         <>
                             <li>
-                                <Link to="/login">Войти</Link>
+                                <Link to="/login">Login</Link>
                             </li>
                             <li>
-                                <Link to="/register">Регистрация</Link>
+                                <Link to="/register">Register</Link>
                             </li>
                         </>
                     )}
 
                     {token && (
                         <li>
-                            <Link to="/logout">Выйти</Link>
+                            <Link to="/logout">Logout</Link>
                         </li>
                     )}
                 </div>

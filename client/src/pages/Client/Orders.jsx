@@ -13,7 +13,7 @@ const Orders = () => {
         const fetchContracts = async () => {
             setLoading(true);
             try {
-                const token = localStorage.getItem('token'); // Adjust this line if you store the token differently
+                const token = localStorage.getItem('token');
                 if (token) {
                     const decodedToken = jwtDecode(token);
                     const userId = decodedToken.id;

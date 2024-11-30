@@ -12,7 +12,6 @@ export const getPolicies = async (req, res) => {
 
 export const createPolicy = async (req, res) => {
     const userId = req.body.agent;
-    console.log(req.body);
     try {
         const agent = await Agent.findOne({ user: userId });
         if (!agent) {

@@ -63,24 +63,18 @@ export const getAgents = async (req, res) => {
 export const getContractsByAgentAffiliate = async (req, res) => {
     try {
         const { id } = req.params;
-
-        // Find the agent based on the user ID and populate affiliate details
         const agent = await Agent.findOne({ user: id }).populate('affiliate');
         if (!agent) {
             return res.status(404).json({ message: 'Agent not found' });
         }
-
-        // Fetch contracts for the affiliate with status "SIGNED" and populate all references
         const contracts = await Contract.find({ 
             affiliate: agent.affiliate._id, 
             status: "SIGNED" 
         })
-        .populate('client') // Populate client data
-        .populate('affiliate') // Populate affiliate data
-        .populate('insuranceObject') // Populate insurance object data
-        .populate('insuranceRisks'); // Populate insurance risks array
-
-        // Return the fully populated contracts
+        .populate('client')
+        .populate('affiliate')
+        .populate('insuranceObject')
+        .populate('insuranceRisks');
         res.status(200).json(contracts);
     } catch (error) {
         res.status(500).json({ message: 'Error retrieving contracts', error: error.message });

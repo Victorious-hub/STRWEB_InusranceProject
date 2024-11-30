@@ -4,79 +4,78 @@ import './../Styles.css'
 
 const FAQ = () => {
     return (
-        <div class="page">
+        <div className="page">
             <Block>
-                <h2>Часто задаваемые вопросы</h2>
+                <h2>Frequently Asked Questions</h2>
 
                 <p>
                     <details>
                         <summary>
-                            <small><mark><time datetime="2023-11-18">2023-11-18</time></mark></small> Что такое страховая фирма "СИНХРОНИЗАЦИЯ"?
+                            <small><mark><time dateTime="2023-11-18">2023-11-18</time></mark></small> What is the insurance company "SYNCHRONIZATION"?
                         </summary>
                         <p>
-                            <abbr title="СИНХРОНИЗАЦИЯ">"СИНХРОНИЗАЦИЯ"</abbr> - это современная страховая фирма, специализирующаяся на
-                            предоставлении высококачественных страховых услуг.
+                            <abbr title="SYNCHRONIZATION">"SYNCHRONIZATION"</abbr> is a modern insurance company specializing in providing high-quality insurance services.
                         </p>
                     </details>
                 </p>
                 <p>
                     <details>
                         <summary>
-                            <small><mark><time datetime="2023-12-09">2023-12-09</time></mark></small> Где находится фирма "СИНХРОНИЗАЦИЯ"?
+                            <small><mark><time dateTime="2023-12-09">2023-12-09</time></mark></small> Where is the company "SYNCHRONIZATION" located?
                         </summary>
                         <p>
-                            Страховая фирма "СИНХРОНИЗАЦИЯ" расположена по адресу:
-                            <a href="https://yandex.by/maps/-/CDQxmROv" target="_blank">ул. Гикало, 9. Минск, Беларусь</a>.
+                            The insurance company "SYNCHRONIZATION" is located at:
+                            <a href="https://yandex.by/maps/-/CDQxmROv" target="_blank">Gikalo St. 9, Minsk, Belarus</a>.
                         </p>
                     </details>
                 </p>
                 <p>
                     <details>
                         <summary>
-                            <small><mark><time datetime="2023-03-28">2023-03-28</time></mark></small> Как связаться с фирмой "СИНХРОНИЗАЦИЯ"?
+                            <small><mark><time dateTime="2023-03-28">2023-03-28</time></mark></small> How to contact the company "SYNCHRONIZATION"?
                         </summary>
                         <p>
-                            Вы можете связаться с нами по телефону +375 (29) 123-45-67 или отправить письмо на электронную почту info@synchronization.by.
+                            You can contact us by phone at +375 (29) 123-45-67 or send an email to info@synchronization.by.
                         </p>
                     </details>
                 </p>
 
                 <Block>
-                    <h3>Термины и понятия</h3>
+                    <h3>Terms and Definitions</h3>
                     <dl>
-                        <dt>Что такое страховой полис?</dt>
+                        <dt>What is an insurance policy?</dt>
                         <dd>
-                            <dfn>Страховой полис</dfn> - это документ, подтверждающий заключение договора страхования и содержащий условия страхования.
+                            <dfn>Insurance policy</dfn> is a document that confirms the conclusion of an insurance contract and contains the terms of insurance.
                         </dd>
 
-                        <dt>Что такое страховая премия?</dt>
+                        <dt>What is the insurance premium?</dt>
                         <dd>
-                            <dfn>Страховая премия</dfn> - это сумма денег, которую страхователь обязуется уплатить страховщику за предоставление страховой защиты.
+                            <dfn>Insurance premium</dfn> is the amount of money that the policyholder agrees to pay to the insurer for providing insurance protection.
                         </dd>
 
-                        <dt>Что такое страховой случай?</dt>
+                        <dt>What is an insured event?</dt>
                         <dd>
-                            <dfn>Страховой случай</dfn> - это событие, предусмотренное договором страхования, при наступлении которого страховщик обязан произвести страховую выплату.
+                            <dfn>Insured event</dfn> is an event specified in the insurance contract, upon the occurrence of which the insurer is obligated to make an insurance payment.
                         </dd>
 
-                        <dt>Что такое страхователь?</dt>
+                        <dt>Who is the policyholder?</dt>
                         <dd>
-                            <dfn>Страхователь</dfn> - это физическое или юридическое лицо, заключающее договор страхования и уплачивающее страховую премию.
+                            <dfn>Policyholder</dfn> is an individual or legal entity that enters into an insurance contract and pays the insurance premium.
                         </dd>
 
-                        <dt>Что такое страховщик?</dt>
+                        <dt>Who is the insurer?</dt>
                         <dd>
-                            <dfn>Страховщик</dfn> - это страховая компания, предоставляющая страховую защиту и принимающая на себя обязательства по выплате страхового возмещения.
+                            <dfn>Insurer</dfn> is the insurance company providing insurance protection and taking on the obligations to pay insurance compensation.
                         </dd>
 
-                        <dt>Что такое страховое возмещение?</dt>
+                        <dt>What is insurance compensation?</dt>
                         <dd>
-                            <dfn>Страховое возмещение</dfn> - это сумма денег, выплачиваемая страховщиком страхователю или выгодоприобретателю при наступлении страхового случая.
+                            <dfn>Insurance compensation</dfn> is the amount of money paid by the insurer to the policyholder or beneficiary upon the occurrence of an insured event.
                         </dd>
 
-                        <dt>Что такое выгодоприобретатель?</dt>
+                        <dt>Who is the beneficiary?</dt>
                         <dd>
-                            <dfn>Выгодоприобретатель</dfn> - это лицо, в пользу которого заключен договор страхования и которое имеет право на получение страхового возмещения.
+                            <dfn>Beneficiary</dfn> is the person for whose benefit the insurance contract is concluded and who has the right to receive insurance compensation.
                         </dd>
                     </dl>
                 </Block>

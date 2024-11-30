@@ -30,12 +30,12 @@ const ContractList = ({ contracts }) => {
               <h3 style={{ marginTop: 0 }}>Contract ID: {contract._id}</h3>
               <p><strong>Status:</strong> {contract.status}</p>
 
-              {contract.client && (
+              {/* {contract.client && (
                 <div style={{ marginTop: "10px" }}>
                   <h4>Client</h4>
                   <p><strong>Client Name:</strong> {contract.client.user.firstName}</p>
                 </div>
-              )}
+              )} */}
 
               {contract.insuranceObject && (
                 <div style={{ marginTop: "10px" }}>

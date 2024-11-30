@@ -19,6 +19,7 @@ export const getInsuranceRisks = async (req, res) => {
     }
 };
 
+
 export const getInsuranceRisksByObjectId = async (req, res) => {
     const { id } = req.params;
 

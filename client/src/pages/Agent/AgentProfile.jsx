@@ -114,7 +114,7 @@ const AgentProfile = () => {
   return (
     <div style={{ padding: "20px", maxWidth: "600px", margin: "0 auto" }}>
       <h2>Agent Profile</h2>
-      <div style={{ marginBottom: "20px" }}>
+      {/* <div style={{ marginBottom: "20px" }}>
         <img
           src={formData.profileImage}
           alt="Profile"
@@ -128,7 +128,7 @@ const AgentProfile = () => {
             </label>
           </div>
         )}
-      </div>
+      </div> */}
       <div style={{ marginBottom: "20px" }}>
         <label>
           First Name:
@@ -231,7 +231,7 @@ const AgentProfile = () => {
         </label>
       </div>
       <div>
-        {editMode ? (
+        {/* {editMode ? (
           <>
             <Button onClick={handleUpdate} style={{ marginRight: "10px" }}>
               Save
@@ -240,7 +240,7 @@ const AgentProfile = () => {
           </>
         ) : (
           <Button onClick={() => setEditMode(true)}>Edit Profile</Button>
-        )}
+        )} */}
       </div>
     </div>
   );

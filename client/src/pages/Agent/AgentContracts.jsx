@@ -24,16 +24,14 @@ const AgentContracts = () => {
     fetchContracts();
   }, [id]);
 
-  // Function to sort contracts based on sortOrder
   const sortedContracts = [...contracts].sort((a, b) => {
     if (sortOrder === "asc") {
-      return a._id.localeCompare(b._id); // Ascending sort by contract ID
+      return a._id.localeCompare(b._id);
     } else {
-      return b._id.localeCompare(a._id); // Descending sort by contract ID
+      return b._id.localeCompare(a._id);
     }
   });
 
-  // Function to filter contracts by insuranceObject name
   const filteredContracts = sortedContracts.filter((contract) => {
     return contract.insuranceObject?.name.toLowerCase().includes(searchQuery.toLowerCase());
   });

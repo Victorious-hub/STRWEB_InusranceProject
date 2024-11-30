@@ -30,16 +30,11 @@ const Catalog = () => {
         fetchData();
     }, []);
 
-    // Filter and sort the items based on search query, insurance type, and sort order
     useEffect(() => {
         let filtered = [...items];
-
-        // Filter by insurance type
         if (insuranceType) {
             filtered = filtered.filter(item => item.insuranceType === insuranceType);
         }
-
-        // Filter by search query
         if (searchQuery) {
             filtered = filtered.filter(item =>
                 item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -47,7 +42,6 @@ const Catalog = () => {
             );
         }
 
-        // Sort items by name or another attribute
         filtered.sort((a, b) => {
             if (sortOrder === 'asc') {
                 return a.name.localeCompare(b.name);

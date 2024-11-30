@@ -37,7 +37,6 @@ const ClientProfile = () => {
             }
             const imageResponse = await $api.get(response.data.user.profileImage, { responseType: "blob" });
             imageUrl = URL.createObjectURL(imageResponse.data);
-            console.log(imageUrl);
         } catch (error) {
             if (error.response && error.response.status === 404) {
                 console.warn("Profile image not found, using default image.");
@@ -107,6 +106,7 @@ const ClientProfile = () => {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
+
       setProfileData((prev) => ({
         ...prev,
         ...updatedData,
@@ -128,14 +128,14 @@ const ClientProfile = () => {
           alt="Profile"
           style={{ width: "150px", height: "150px", borderRadius: "50%" }}
         />
-        {editMode && (
+        {/* {editMode && (
           <div>
             <label>
               Change Profile Image:
               <input type="file" accept="image/*" onChange={handleImageChange} />
             </label>
           </div>
-        )}
+        )} */}
       </div>
       <div style={{ marginBottom: "20px" }}>
         <label>

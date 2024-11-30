@@ -6,7 +6,7 @@ import $api from '../../http/index';
 import { useNavigate } from 'react-router-dom';
 
 const GoogleAuth = () => {
-    const clientId = "454685750002-g0i4h7p2muuf0s3pp4k3l1aja3kb2893.apps.googleusercontent.com";
+    const clientId = "client_id_here";
     const navigate = useNavigate();
     const { setToken } = useContext(AuthContext);
 

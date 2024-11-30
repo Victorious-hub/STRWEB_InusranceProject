@@ -9,12 +9,9 @@ import GoogleAuth from "../../components/GoogleAuth/GoogleAuth";
 
 async function auth(){
     const response =await fetch('http://localhost:8080/request',{method:'post'});
-  
     const data = await response.json();
-    console.log(data);
     navigate(data.url);
-  
-  }
+}
 
 const Login = () => {
     const { setToken } = useContext(AuthContext);
